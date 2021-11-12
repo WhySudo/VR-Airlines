@@ -1,9 +1,34 @@
 fileFormatVersion: 2
-guid: cc7145df0fe0a5c4db36eff1ddc8dd70
+guid: f7b41d5ba6142a4429dbd5e562d08b4f
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: br
+    second: {fileID: 2100000, guid: 281666a478195b741a89920c4568ca48, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: broom
+    second: {fileID: 2100000, guid: 23c130624255b4946b3c9cb4915e8506, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: broom_top_under
+    second: {fileID: 2100000, guid: b6251a40dbb76c94bab2669cd91e076b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: slice
+    second: {fileID: 2100000, guid: cd9aad8d4156d844b995f59fd5d1a512, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood
+    second: {fileID: 2100000, guid: d5ba282277c20614e8b4151349e84bc4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

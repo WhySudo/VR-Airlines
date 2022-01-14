@@ -36,6 +36,8 @@ namespace UserInput
 
         private void DetectInput()
         {
+            var accel = GetAcceleration();
+            Debug.Log(accel);
             inputChannel.UpdatePitch(GetPitchAngle());
             inputChannel.UpdateBank(GetBankAngle());
             inputChannel.UpdateYaw(GetYawAngle());

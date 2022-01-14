@@ -25,7 +25,7 @@ namespace UserInput
 
         private void Start()
         {
-            cameraParent.position = -cameraObject.position;
+            cameraParent.localPosition -= cameraObject.localPosition;
             cameraParent.rotation = Quaternion.Euler(-cameraObject.rotation.eulerAngles);
             rightOrigin = rightRig.position;
             leftOrigin = leftRig.position;

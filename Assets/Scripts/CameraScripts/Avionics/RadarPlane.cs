@@ -22,7 +22,7 @@ namespace CameraScripts.Avionics
 
         private void CalculateBank(Vector2 size)
         {
-            rectTransform.rotation = Quaternion.Euler(0, 0, planeMovement.Bank);
+            rectTransform.localRotation = Quaternion.Euler(0, 0, planeMovement.Bank);
         }
 
         private void CalculatePitch(Vector2 size)

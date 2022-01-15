@@ -1,33 +1,20 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.XR;
+using Valve.VR;
+using Valve.VR;
 
 namespace UserInput
 {
     public class VRRigTracking : MonoBehaviour
     {
-        [Header("Links")]
+        [Header("Links")] [SerializeField] private VRInputConfig vrConfig;
         [SerializeField] private InputChannel inputChannel;
-        [SerializeField] private Transform leftRig;
-        [SerializeField] private Transform rightRig;
+        [SerializeField] private TrackableJoystickRig leftRig;
+        [SerializeField] private TrackableJoystickRig rightRig;
 
-        [Header("Camera")]
-        [SerializeField] private Transform cameraObject;
-        [SerializeField] private Transform cameraParent;
-        [Header("Settings")] 
-        [SerializeField] private float leftBaseZ;
-        [SerializeField] private float leftBaseX;
-        [SerializeField] private float leftBaseRotZ;
-        [SerializeField] private float rightBaseZ;
-
-
-        private Vector3 rightOrigin;
-        private Vector3 leftOrigin;
-
-        private void Start()
-        {
-            rightOrigin = rightRig.position;
-            leftOrigin = leftRig.position;
-        }
+        [Header("Debug")]
+        [SerializeField] private bool lockInput = false;
 
         private void Update()
         {
@@ -36,29 +23,48 @@ namespace UserInput
 
         private void DetectInput()
         {
-            var accel = GetAcceleration();
-            Debug.Log(accel);
+            CheckLockInputs();
+            if (lockInput) return;
+            Debug.Log(leftRig.AlignedDelta);
+            Debug.Log(rightRig.AlignedDelta);
             inputChannel.UpdatePitch(GetPitchAngle());
             inputChannel.UpdateBank(GetBankAngle());
             inputChannel.UpdateYaw(GetYawAngle());
             inputChannel.ChangeSpeed(GetAcceleration());
         }
 
+        private void CheckLockInputs()
+        {
+            if (Input.GetAxis(vrConfig.rightButtonAxisName) > 0f)
+            {
+                lockInput = true;
+            }
+            else if (Input.GetAxis(vrConfig.leftTriggerAxisName) > 0f)
+            {
+                lockInput = false;
+            }
+        }
+
         private float GetPitchAngle()
         {
-            return Mathf.Clamp( (leftRig.position - leftOrigin).z - leftBaseZ, -1, 1);
+            return -leftRig.AlignedDelta.z;
         }
+
         private float GetBankAngle()
         {
-            return Mathf.Clamp( leftRig.rotation.eulerAngles.z - leftBaseRotZ, -1, 1);
+            return rightRig.AlignedDelta.x;
         }
+
         private float GetYawAngle()
         {
-            return Mathf.Clamp( (leftRig.position - leftOrigin).x - leftBaseX, -1, 1);
+            return leftRig.AlignedDelta.x;
         }
+
         private float GetAcceleration()
         {
-            return Mathf.Clamp((rightRig.position - rightOrigin).z - rightBaseZ, -1, 1);
+            var returnValue = Input.GetAxis(vrConfig.rightTriggerAxisName) -
+                              Input.GetAxis(vrConfig.leftTriggerAxisName);
+            return returnValue;
         }
     }
 }

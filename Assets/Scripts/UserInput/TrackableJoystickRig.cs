@@ -23,11 +23,20 @@ namespace UserInput
             }
         }
 
-        public float DeltaFromUpRotation
+        public float DeltaXRotation
         {
             get
             {
                 var rawAngle = Mathf.Clamp(Vector3.SignedAngle(container.right, transform.right, container.forward),
+                    -vrConfig.maxAngle, vrConfig.maxAngle) / vrConfig.maxAngle;
+                return NormalizeCutout(rawAngle);
+            }
+        }
+        public float DeltaZRotation
+        {
+            get
+            {
+                var rawAngle = Mathf.Clamp(Vector3.SignedAngle(container.forward, transform.forward, container.right),
                     -vrConfig.maxAngle, vrConfig.maxAngle) / vrConfig.maxAngle;
                 return NormalizeCutout(rawAngle);
             }

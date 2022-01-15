@@ -52,6 +52,7 @@ namespace UserInput
 
         private float GetBankAngle()
         {
+            Debug.Log(rightRig.DeltaFromUpRotation);
             return rightRig.DeltaFromUpRotation ;
         }
 

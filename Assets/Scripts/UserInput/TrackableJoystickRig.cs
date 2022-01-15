@@ -18,7 +18,7 @@ namespace UserInput
             if (Mathf.Abs(rawValue) < vrConfig.cutoutDelta) return 0;
             else
             {
-                return (Mathf.Abs(rawValue) - vrConfig.cutoutDelta) / (1 - vrConfig.cutoutDelta) * rawValue /
+                return (Mathf.Abs(rawValue) - vrConfig.cutoutDeltaAngle) / (1 - vrConfig.cutoutDeltaAngle) * rawValue /
                        Mathf.Abs(rawValue);
             }
         }

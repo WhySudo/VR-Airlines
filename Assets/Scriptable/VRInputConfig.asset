@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: VRInputConfig
   m_EditorClassIdentifier: 
   defaultFront: {x: 0, y: 0, z: 1}
-  maxAngle: 60
-  rigsMaxDelta: 0.15
+  maxAngle: 50
+  rigsMaxDelta: 0.3
   cutoutDelta: 0.3
-  cutoutDeltaAngle: 0.4
+  cutoutDeltaAngle: 0.1
   leftTriggerAxisName: VRLeftTrigger
   rightTriggerAxisName: VRRightTrigger
   leftButtonAxisName: VRLeftButton

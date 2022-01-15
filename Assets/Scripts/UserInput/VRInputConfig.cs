@@ -16,6 +16,10 @@ namespace UserInput
         [SerializeField] public string leftButtonAxisName;
         [SerializeField] public string rightButtonAxisName;
 
+        [Header("delta angles")]
+        [SerializeField] public float xDeltaAngle;
+        [SerializeField] public float zDeltaAngle;
+
         private void OnValidate()
         {
             cutoutDelta = Mathf.Clamp01(cutoutDelta);

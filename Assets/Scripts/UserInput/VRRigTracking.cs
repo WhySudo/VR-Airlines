@@ -25,8 +25,6 @@ namespace UserInput
         {
             CheckLockInputs();
             if (lockInput) return;
-            Debug.Log(leftRig.AlignedDelta);
-            Debug.Log(rightRig.AlignedDelta);
             inputChannel.UpdatePitch(GetPitchAngle());
             inputChannel.UpdateBank(GetBankAngle());
             inputChannel.UpdateYaw(GetYawAngle());
@@ -52,7 +50,7 @@ namespace UserInput
 
         private float GetBankAngle()
         {
-            return -rightRig.AlignedDelta.x;
+            return rightRig.DeltaFromUpRotation / 90f;
         }
 
         private float GetYawAngle()

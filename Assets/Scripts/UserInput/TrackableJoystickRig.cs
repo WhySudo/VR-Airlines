@@ -14,6 +14,9 @@ namespace UserInput
         [SerializeField] private Vector3 pivotPoint;
         public Vector3 PivotPoint => pivotPoint;
 
+        public float DeltaFromUpRotation => Vector3.SignedAngle(container.up,transform.up,transform.forward);
+        
+        
         public Vector3 AlignedDelta =>
             Quaternion.FromToRotation(Vector3.ProjectOnPlane(transform.forward, container.up), container.forward
                 ) * UnalignedDelta;
@@ -43,6 +46,8 @@ namespace UserInput
         private float MaxDelta => vrConfig.rigsMaxDelta;
         
 
+        
+        
         private void Start()
         {
             pivotPoint = transform.localPosition;

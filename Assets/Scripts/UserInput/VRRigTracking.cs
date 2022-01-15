@@ -55,7 +55,7 @@ namespace UserInput
 
         private float GetYawAngle()
         {
-            return -leftRig.AlignedDelta.x;
+            return -rightRig.AlignedDelta.x;
         }
 
         private float GetAcceleration()

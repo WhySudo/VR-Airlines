@@ -17,7 +17,17 @@ namespace Plane
         public float Pitch => Vector3.SignedAngle(transform.forward,
             Vector3.ProjectOnPlane(transform.forward, movementSettings.comparePlane), -transform.right);
         public float Bank => Vector3.SignedAngle(transform.right, Vector3.ProjectOnPlane(transform.right, movementSettings.comparePlane), -transform.forward);
-
+        
+        public float Yaw 
+        {
+            get
+            {
+                var check = Vector3.ProjectOnPlane(transform.forward, Vector3.up);
+                var angle = Vector3.SignedAngle(Vector3.forward, check, Vector3.up);
+                return angle;
+            }
+        }
+        
         private void Start()
         {
             speed = movementSettings.baseSpeed;

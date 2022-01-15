@@ -52,8 +52,7 @@ namespace UserInput
 
         private float GetBankAngle()
         {
-            Debug.Log(rightRig.DeltaFromUpRotation / 90f);
-            return rightRig.DeltaFromUpRotation / 90f;
+            return rightRig.DeltaFromUpRotation ;
         }
 
         private float GetYawAngle()

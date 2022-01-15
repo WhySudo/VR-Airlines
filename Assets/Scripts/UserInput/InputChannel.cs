@@ -39,6 +39,7 @@ namespace UserInput
         {
             ChangeSpeedRequestEvent.Invoke(new ChangeSpeedRequestArgs(delta));
         }
+        
     }
     
 }

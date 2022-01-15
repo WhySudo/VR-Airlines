@@ -18,7 +18,10 @@ namespace UserInput
         private float NormalizeCutout(float rawValue)
         {
             if (rawValue < vrConfig.cutoutDelta) return 0;
-            else return (rawValue - vrConfig.cutoutDelta) / (1 - vrConfig.cutoutDelta);
+            else
+            {
+                return (rawValue - vrConfig.cutoutDelta) / (1 - vrConfig.cutoutDelta);
+            }
         }
         public float DeltaFromUpRotation
         {
@@ -26,6 +29,7 @@ namespace UserInput
             {
                 var rawAngle = Mathf.Clamp(Vector3.SignedAngle(container.up, transform.up, transform.forward),
                     -vrConfig.maxAngle, vrConfig.maxAngle) / vrConfig.maxAngle;
+                Debug.Log(rawAngle);
                 return NormalizeCutout(rawAngle);
             }
         }

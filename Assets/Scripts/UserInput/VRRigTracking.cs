@@ -47,17 +47,17 @@ namespace UserInput
 
         private float GetPitchAngle()
         {
-            return -leftRig.AlignedDelta.z;
+            return -rightRig.AlignedDelta.z;
         }
 
         private float GetBankAngle()
         {
-            return rightRig.AlignedDelta.x;
+            return -rightRig.AlignedDelta.x;
         }
 
         private float GetYawAngle()
         {
-            return leftRig.AlignedDelta.x;
+            return -leftRig.AlignedDelta.x;
         }
 
         private float GetAcceleration()

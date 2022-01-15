@@ -18,9 +18,28 @@ namespace UserInput
             Quaternion.FromToRotation(Vector3.ProjectOnPlane(transform.forward, container.up), container.forward
                 ) * UnalignedDelta;
 
-        public Vector3 UnalignedDelta => RawDelta / MaxDelta;
-        private Vector3 RawDelta => transform.localPosition - pivotPoint;
-        
+        public Vector3 UnalignedDelta
+        {
+            get
+            {
+                var delta = RawDelta / MaxDelta;
+                if (delta.magnitude <= vrConfig.cutoutDelta)
+                {
+                    return Vector3.zero;
+                }
+
+                return delta;
+            }
+        }
+
+        private Vector3 RawDelta
+        {
+            get
+            {
+                return transform.localPosition - pivotPoint;
+            }
+        }
+
         private float MaxDelta => vrConfig.rigsMaxDelta;
         
 

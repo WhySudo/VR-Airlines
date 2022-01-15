@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace UserInput
 {
@@ -7,9 +8,15 @@ namespace UserInput
     {
         [SerializeField] public Vector3 defaultFront;
         [SerializeField] public float rigsMaxDelta;
+        [SerializeField] public float cutoutDelta;
         [SerializeField] public string leftTriggerAxisName;
         [SerializeField] public string rightTriggerAxisName;
         [SerializeField] public string leftButtonAxisName;
         [SerializeField] public string rightButtonAxisName;
+
+        private void OnValidate()
+        {
+            cutoutDelta = Mathf.Clamp01(cutoutDelta);
+        }
     }
 }

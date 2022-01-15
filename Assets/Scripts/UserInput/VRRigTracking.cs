@@ -52,19 +52,19 @@ namespace UserInput
 
         private float GetBankAngle()
         {
-            Debug.Log(rightRig.DeltaFromUpRotation);
             return rightRig.DeltaFromUpRotation ;
         }
 
         private float GetYawAngle()
         {
-            return -rightRig.AlignedDelta.x;
+            return -leftRig.AlignedDelta.x;
         }
 
         private float GetAcceleration()
         {
-            var press = SteamVR_Input.GetAction<SteamVR_Action_Single>("GrabPinch").axis - 0.5;
-            return (float)press;
+            // var press = SteamVR_Input.GetAction<SteamVR_Action_Single>("GrabPinch").axis - 0.5;
+            // return (float)press;
+            return -leftRig.AlignedDelta.z;
         }
     }
 }

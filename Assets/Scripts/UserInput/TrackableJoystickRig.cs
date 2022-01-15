@@ -14,9 +14,23 @@ namespace UserInput
         [SerializeField] private Vector3 pivotPoint;
         public Vector3 PivotPoint => pivotPoint;
 
-        public float DeltaFromUpRotation => Vector3.SignedAngle(container.up,transform.up,transform.forward);
         
+        private float NormalizeCutout(float rawValue)
+        {
+            if (rawValue < vrConfig.cutoutDelta) return 0;
+            else return (rawValue - vrConfig.cutoutDelta) / (1 - vrConfig.cutoutDelta);
+        }
+        public float DeltaFromUpRotation
+        {
+            get
+            {
+                var rawAngle = Mathf.Clamp(Vector3.SignedAngle(container.up, transform.up, transform.forward),
+                    -vrConfig.maxAngle, vrConfig.maxAngle) / vrConfig.maxAngle;
+                return NormalizeCutout(rawAngle);
+            }
+        }
         
+
         public Vector3 AlignedDelta =>
             Quaternion.FromToRotation(Vector3.ProjectOnPlane(transform.forward, container.up), container.forward
                 ) * UnalignedDelta;

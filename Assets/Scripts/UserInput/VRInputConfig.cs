@@ -7,6 +7,7 @@ namespace UserInput
     public class VRInputConfig : ScriptableObject
     {
         [SerializeField] public Vector3 defaultFront;
+        [SerializeField] public float maxAngle;
         [SerializeField] public float rigsMaxDelta;
         [SerializeField] public float cutoutDelta;
         [SerializeField] public string leftTriggerAxisName;

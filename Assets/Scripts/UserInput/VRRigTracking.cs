@@ -21,6 +21,8 @@ namespace UserInput
             DetectInput();
         }
 
+
+        
         private void DetectInput()
         {
             CheckLockInputs();
@@ -50,12 +52,13 @@ namespace UserInput
 
         private float GetBankAngle()
         {
-            return -rightRig.AlignedDelta.x;
+            Debug.Log(rightRig.DeltaFromUpRotation / 90f);
+            return rightRig.DeltaFromUpRotation / 90f;
         }
 
         private float GetYawAngle()
         {
-            return -leftRig.AlignedDelta.x;
+            return -rightRig.AlignedDelta.x;
         }
 
         private float GetAcceleration()

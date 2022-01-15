@@ -50,12 +50,12 @@ namespace UserInput
 
         private float GetBankAngle()
         {
-            return rightRig.DeltaFromUpRotation / 90f;
+            return -rightRig.AlignedDelta.x;
         }
 
         private float GetYawAngle()
         {
-            return -rightRig.AlignedDelta.x;
+            return -leftRig.AlignedDelta.x;
         }
 
         private float GetAcceleration()

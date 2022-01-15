@@ -5,39 +5,38 @@ namespace UserInput
 {
     public class TrackableJoystickRig : MonoBehaviour
     {
-        [Header("Settings")] 
-        [SerializeField] private Transform container;
+        [Header("Settings")] [SerializeField] private Transform container;
         [SerializeField] private VRInputConfig vrConfig;
 
-        [Header("Debug")]
-        [SerializeField] private Vector3 delta;
+        [Header("Debug")] [SerializeField] private Vector3 delta;
         [SerializeField] private Vector3 pivotPoint;
         public Vector3 PivotPoint => pivotPoint;
 
-        
+
         private float NormalizeCutout(float rawValue)
         {
-            if (rawValue < vrConfig.cutoutDelta) return 0;
+            if (Mathf.Abs(rawValue) < vrConfig.cutoutDelta) return 0;
             else
             {
-                return (rawValue - vrConfig.cutoutDelta) / (1 - vrConfig.cutoutDelta);
+                return (Mathf.Abs(rawValue) - vrConfig.cutoutDelta) / (1 - vrConfig.cutoutDelta) * rawValue /
+                       Mathf.Abs(rawValue);
             }
         }
+
         public float DeltaFromUpRotation
         {
             get
             {
                 var rawAngle = Mathf.Clamp(Vector3.SignedAngle(container.up, transform.up, transform.forward),
                     -vrConfig.maxAngle, vrConfig.maxAngle) / vrConfig.maxAngle;
-                Debug.Log(rawAngle);
                 return NormalizeCutout(rawAngle);
             }
         }
-        
+
 
         public Vector3 AlignedDelta =>
             Quaternion.FromToRotation(Vector3.ProjectOnPlane(transform.forward, container.up), container.forward
-                ) * UnalignedDelta;
+            ) * UnalignedDelta;
 
         public Vector3 UnalignedDelta
         {
@@ -55,17 +54,12 @@ namespace UserInput
 
         private Vector3 RawDelta
         {
-            get
-            {
-                return transform.localPosition - pivotPoint;
-            }
+            get { return transform.localPosition - pivotPoint; }
         }
 
         private float MaxDelta => vrConfig.rigsMaxDelta;
-        
 
-        
-        
+
         private void Start()
         {
             pivotPoint = transform.localPosition;
@@ -75,7 +69,6 @@ namespace UserInput
         {
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(PivotPoint, MaxDelta);
-            
         }
 
         private void Update()

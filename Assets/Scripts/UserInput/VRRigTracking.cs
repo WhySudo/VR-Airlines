@@ -63,9 +63,8 @@ namespace UserInput
 
         private float GetAcceleration()
         {
-            var returnValue = Input.GetAxis(vrConfig.rightTriggerAxisName) -
-                              Input.GetAxis(vrConfig.leftTriggerAxisName);
-            return returnValue;
+            var press = SteamVR_Input.GetAction<SteamVR_Action_Single>("GrabPinch").axis - 0.5;
+            return (float)press;
         }
     }
 }

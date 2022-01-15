@@ -27,7 +27,7 @@ namespace UserInput
         {
             get
             {
-                var rawAngle = Mathf.Clamp(Vector3.SignedAngle(container.up, transform.up, transform.forward),
+                var rawAngle = Mathf.Clamp(Vector3.SignedAngle(container.right, transform.right, transform.forward),
                     -vrConfig.maxAngle, vrConfig.maxAngle) / vrConfig.maxAngle;
                 return NormalizeCutout(rawAngle);
             }

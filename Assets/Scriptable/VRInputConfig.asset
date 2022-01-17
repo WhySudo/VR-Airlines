@@ -13,14 +13,10 @@ MonoBehaviour:
   m_Name: VRInputConfig
   m_EditorClassIdentifier: 
   defaultFront: {x: 0, y: 0, z: 1}
-  maxAngle: 50
-  rigsMaxDelta: 0.3
+  maxAngle: 60
+  rigsMaxDelta: 0.15
   cutoutDelta: 0.3
   cutoutDeltaAngle: 0.1
-  joystickAxisName: GrabPinch
-  leftTriggerAxisName: VRLeftTrigger
-  rightTriggerAxisName: VRRightTrigger
-  leftButtonAxisName: VRLeftButton
-  rightButtonAxisName: VRRightButton
   xDeltaAngle: 0
   zDeltaAngle: 0
+  detectAutoAlign: 0

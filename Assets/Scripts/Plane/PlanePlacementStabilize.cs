@@ -18,9 +18,14 @@ namespace Plane
         {
             transform.localPosition += new Vector3(joystick.GetAxis(SteamVR_Input_Sources.RightHand).x * moveIntensity * Time.deltaTime, 0,
                 joystick.GetAxis(SteamVR_Input_Sources.RightHand).y * moveIntensity * Time.deltaTime);
-            
-            transform.localRotation *= Quaternion.AngleAxis(joystick.GetAxis(SteamVR_Input_Sources.LeftHand).x * rotateIntensity * Time.deltaTime, Vector3.up);
-            
+
+            if (joystick.GetAxis(SteamVR_Input_Sources.LeftHand).x > 0.15)
+            {
+                transform.localRotation *=
+                    Quaternion.AngleAxis(
+                        joystick.GetAxis(SteamVR_Input_Sources.LeftHand).x * rotateIntensity * Time.deltaTime,
+                        Vector3.up);
+            }
         }
     }
 }

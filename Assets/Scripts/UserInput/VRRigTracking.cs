@@ -88,6 +88,7 @@ namespace UserInput
 
         private float GetPitchAngle()
         {
+            Debug.Log(-rightRig.AlignedDelta.z);
             return -rightRig.AlignedDelta.z;
         }
 

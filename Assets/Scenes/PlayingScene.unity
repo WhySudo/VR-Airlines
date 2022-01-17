@@ -3438,7 +3438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42e1199126e34abe9f3a9acf42ae544b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveIntensity: 0.05
+  moveIntensity: 0.3
   rotateIntensity: 30
   joystick:
     actionPath: /actions/buggy/in/Steering

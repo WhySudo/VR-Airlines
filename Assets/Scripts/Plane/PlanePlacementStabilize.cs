@@ -19,7 +19,7 @@ namespace Plane
             transform.localPosition += new Vector3(joystick.GetAxis(SteamVR_Input_Sources.RightHand).x * moveIntensity * Time.deltaTime, 0,
                 joystick.GetAxis(SteamVR_Input_Sources.RightHand).y * moveIntensity * Time.deltaTime);
 
-            if (joystick.GetAxis(SteamVR_Input_Sources.LeftHand).x > 0.15)
+            if (Mathf.Abs(joystick.GetAxis(SteamVR_Input_Sources.LeftHand).x) > 0.15)
             {
                 transform.localRotation *=
                     Quaternion.AngleAxis(

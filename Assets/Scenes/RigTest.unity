@@ -222,14 +222,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 271792755}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.46174863, y: 0, z: 0, w: 0.8870109}
   m_LocalPosition: {x: 2.7170002, y: 3.2668478, z: -0.7103389}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 410665465}
   m_Father: {fileID: 2110867775}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -55, y: 0, z: 0}
 --- !u!114 &271792757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -606,7 +606,14 @@ MonoBehaviour:
   inputChannel: {fileID: 11400000, guid: 66d51759b24c2ec459a097a323958bca, type: 2}
   leftRig: {fileID: 927759485}
   rightRig: {fileID: 271792757}
-  lockInput: 0
+  lockLeft: 1
+  lockRight: 1
+  inputTriggerAction:
+    actionPath: 
+    needsReinit: 0
+  joystick:
+    actionPath: 
+    needsReinit: 0
 --- !u!4 &1278991905
 Transform:
   m_ObjectHideFlags: 0

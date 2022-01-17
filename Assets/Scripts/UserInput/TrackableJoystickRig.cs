@@ -48,7 +48,8 @@ namespace UserInput
 
 
         public Vector3 AlignedDelta =>
-            Quaternion.FromToRotation(Vector3.ProjectOnPlane(transform.forward, container.up), container.forward
+             Quaternion.FromToRotation(Vector3.ProjectOnPlane(transform.forward, container.up), container.forward
+            // Quaternion.FromToRotation(transform.forward, container.forward
             ) * UnalignedDelta;
 
         public Vector3 UnalignedDelta
@@ -90,10 +91,11 @@ namespace UserInput
             CheckPivotUpdate();
         }
 
-
+        private float _storedZRot = -55;
         public void UnlockInput()
         {
             inputLocked = false;
+            _storedZRot = DeltaZRotation;
             pivotPoint = transform.localPosition;
         }
 

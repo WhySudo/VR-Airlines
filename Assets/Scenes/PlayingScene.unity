@@ -3620,7 +3620,7 @@ PrefabInstance:
     - target: {fileID: 860555165588669341, guid: 071aab6d3b4f542418777cd09b0d1622,
         type: 3}
       propertyPath: joystick.actionPath
-      value: /actions/platformer/in/Move
+      value: /actions/buggy/in/Steering
       objectReference: {fileID: 0}
     - target: {fileID: 860555165588669341, guid: 071aab6d3b4f542418777cd09b0d1622,
         type: 3}

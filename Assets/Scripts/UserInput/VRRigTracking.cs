@@ -37,9 +37,9 @@ namespace UserInput
 
         private void DetectInput()
         {
-            CheckLockInputs();
-            inputChannel.AutoAlign =
-                Mathf.Abs(joystick.GetAxis(SteamVR_Input_Sources.LeftHand).y) > vrConfig.detectAutoAlign;
+      //      CheckLockInputs();
+            // inputChannel.AutoAlign =
+            //     Mathf.Abs(joystick.GetAxis(SteamVR_Input_Sources.LeftHand).y) > vrConfig.detectAutoAlign;
             inputChannel.UpdatePitch(lockRight?0:GetPitchAngle());
             inputChannel.UpdateBank(lockRight?0:GetBankAngle());
             inputChannel.UpdateYaw(lockLeft?0:GetYawAngle());
@@ -88,8 +88,10 @@ namespace UserInput
 
         private float GetPitchAngle()
         {
-            Debug.Log(-rightRig.AlignedDelta.z);
-            return -rightRig.AlignedDelta.z;
+            var pitch = -rightRig.AlignedDelta.z +
+                        Mathf.Abs(rightRig.AlignedDelta.x) * (-rightRig.AlignedDelta.z > 0 ? 1 : -1f);
+            pitch = Mathf.Clamp(pitch, -1, 1);
+            return pitch;
         }
 
         private float GetBankAngle()

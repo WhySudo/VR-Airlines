@@ -13,10 +13,12 @@ namespace UserInput
         [SerializeField] private TrackableJoystickRig leftRig;
         [SerializeField] private TrackableJoystickRig rightRig;
 
-        [Header("Debug")] [SerializeField] private bool lockInput = true;
+        [Header("Debug")] 
+        [SerializeField] private bool lockLeft = true;
+        [SerializeField] private bool lockRight = true;
 
         [SerializeField] private SteamVR_Action_Single inputTriggerAction;
-        public bool InputLocked => lockInput;
+    
 
         private void Update()
         {
@@ -26,7 +28,6 @@ namespace UserInput
         private void Awake()
         {
             SteamVR.Initialize();
-//            inputTriggerAction = SteamVR_Input.GetAction<SteamVR_Action_Single>(vrConfig.joystickAxisName);
             leftRig.LockInput();
             rightRig.LockInput();
         }
@@ -35,34 +36,49 @@ namespace UserInput
         private void DetectInput()
         {
             CheckLockInputs();
-            if (lockInput) return;
-            inputChannel.UpdatePitch(GetPitchAngle());
-            inputChannel.UpdateBank(GetBankAngle());
-            inputChannel.UpdateYaw(GetYawAngle());
-            inputChannel.ChangeSpeed(GetAcceleration());
+            inputChannel.UpdatePitch(lockRight?0:GetPitchAngle());
+            inputChannel.UpdateBank(lockRight?0:GetBankAngle());
+            inputChannel.UpdateYaw(lockLeft?0:GetYawAngle());
+            inputChannel.ChangeSpeed(lockLeft?0:GetAcceleration());
         }
 
         private void CheckLockInputs()
         {
-            if (inputTriggerAction.axis > 0f)
+            if (inputTriggerAction.GetAxis(SteamVR_Input_Sources.LeftHand) > 0f)
             {
-                if (lockInput == true)
+                if (lockLeft)
                 {
                     leftRig.UnlockInput();
-                    rightRig.UnlockInput();
                 }
 
-                lockInput = false;
+                lockLeft = false;
             }
             else
             {
-                if (lockInput == false)
+                if (lockLeft == false)
                 {
                     leftRig.LockInput();
+                }
+
+                lockLeft = true;
+            }
+            if (inputTriggerAction.GetAxis(SteamVR_Input_Sources.RightHand) > 0f)
+            {
+                if (lockRight)
+                {
+                    rightRig.UnlockInput();
+                }
+
+                lockRight = false;
+            }
+            else
+            {
+                if (lockRight == false)
+                {
                     rightRig.LockInput();
                 }
 
-                lockInput = true;
+                lockRight = true;
             }
         }
 

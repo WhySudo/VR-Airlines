@@ -50,8 +50,8 @@ namespace Plane
 
         private void ProcessMovement()
         {
+            Debug.Log(inputChannel.AutoAlign);
             if (speed <= 0) return;
-            
             BankRotation();
             PitchRotation();
             YawRotation();

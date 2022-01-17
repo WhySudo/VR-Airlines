@@ -59,7 +59,12 @@ namespace Plane
 
         private void MoveForward()
         {
-            transform.position += transform.forward * (speed * Time.deltaTime);
+            var setPosition = transform.forward * (speed * Time.deltaTime);
+            if (setPosition.y < 0)
+            {
+                setPosition += Vector3.down * setPosition.y;
+            }
+            transform.position = setPosition;
         }
 
         private void PitchRotation()

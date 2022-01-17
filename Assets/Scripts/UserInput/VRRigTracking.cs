@@ -20,6 +20,7 @@ namespace UserInput
         [SerializeField] private SteamVR_Action_Vector2 joystick;
 
 
+        
         private void Update()
         {
             DetectInput();
@@ -35,9 +36,9 @@ namespace UserInput
 
         private void DetectInput()
         {
-            CheckLockInputs();
-            inputChannel.AutoAlign =
-                Mathf.Abs(joystick.GetAxis(SteamVR_Input_Sources.LeftHand).y) > vrConfig.detectAutoAlign;
+            
+            // CheckLockInputs();
+            // inputChannel.AutoAlign = Mathf.Abs(joystick.GetAxis(SteamVR_Input_Sources.LeftHand).y) > vrConfig.detectAutoAlign;
             inputChannel.UpdatePitch(lockRight ? 0 : GetPitchAngle());
             inputChannel.UpdateBank(lockRight ? 0 : GetBankAngle());
             inputChannel.UpdateYaw(lockLeft ? 0 : GetYawAngle());
@@ -87,9 +88,11 @@ namespace UserInput
 
         private float GetPitchAngle()
         {
-            var pitch = -rightRig.AlignedDelta.z +
-                        Mathf.Abs(rightRig.AlignedDelta.x) * (-rightRig.AlignedDelta.z > 0 ? 1 : -1f);
+            var pitch = Mathf.Pow(Mathf.Pow(-rightRig.AlignedDelta.z, 2) + Mathf.Pow(rightRig.AlignedDelta.y, 2), .5f) *
+                        (-rightRig.AlignedDelta.z > 0 ? 1 : -1f);
+            Debug.Log(pitch);
             pitch = Mathf.Clamp(pitch, -1, 1);
+            
             return pitch;
         }
 

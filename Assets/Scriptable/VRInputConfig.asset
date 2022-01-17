@@ -19,4 +19,4 @@ MonoBehaviour:
   cutoutDeltaAngle: 0.1
   xDeltaAngle: 0
   zDeltaAngle: 0
-  detectAutoAlign: 0
+  detectAutoAlign: 0.25

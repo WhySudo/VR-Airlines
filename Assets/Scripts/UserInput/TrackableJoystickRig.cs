@@ -35,20 +35,9 @@ namespace UserInput
             }
         }
 
-        public float DeltaZRotation
-        {
-            get
-            {
-                var rawAngle = Mathf.Clamp(
-                    vrConfig.zDeltaAngle + Vector3.SignedAngle(container.forward, transform.forward, container.right),
-                    -vrConfig.maxAngle, vrConfig.maxAngle) / vrConfig.maxAngle;
-                return NormalizeCutout(rawAngle);
-            }
-        }
-
 
         public Vector3 AlignedDelta =>
-             Quaternion.FromToRotation(Vector3.ProjectOnPlane(transform.forward, container.up), container.forward
+             Quaternion.FromToRotation(Vector3.ProjectOnPlane(storedFront, container.up), container.forward
             // Quaternion.FromToRotation(transform.forward, container.forward
             ) * UnalignedDelta;
 
@@ -73,6 +62,7 @@ namespace UserInput
 
         private float MaxDelta => vrConfig.rigsMaxDelta;
 
+        private Vector3 storedFront;
 
         private void Start()
         {
@@ -91,11 +81,10 @@ namespace UserInput
             CheckPivotUpdate();
         }
 
-        private float _storedZRot = -55;
         public void UnlockInput()
         {
             inputLocked = false;
-            _storedZRot = DeltaZRotation;
+            storedFront = transform.forward;
             pivotPoint = transform.localPosition;
         }
 

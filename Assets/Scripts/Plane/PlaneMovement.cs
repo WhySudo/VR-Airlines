@@ -60,10 +60,11 @@ namespace Plane
         private void MoveForward()
         {
             var setPosition = transform.position +  transform.forward * (speed * Time.deltaTime);
-            if (setPosition.y < 0)
+            if (setPosition.y <  movementSettings.minY)
             {
-                setPosition += Vector3.down * setPosition.y;
+                setPosition = new Vector3(setPosition.x, movementSettings.minY, setPosition.z);
             }
+
             transform.position = setPosition;
         }
 

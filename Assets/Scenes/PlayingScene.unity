@@ -401,9 +401,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1a47b65e3349e89462a52fc57ecc52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planeMovement: {fileID: 0}
+  planeMovement: {fileID: 1141772330}
   displayGround: {fileID: 1882480430}
-  groundLevel: 5
+  movementSettings: {fileID: 11400000, guid: 7ada45e20194db7439c52fa9c1b001ce, type: 2}
 --- !u!1 &310835950
 GameObject:
   m_ObjectHideFlags: 0
@@ -2804,7 +2804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planeMovement: {fileID: 0}
   displayGround: {fileID: 1741657655}
-  groundLevel: 5
+  movementSettings: {fileID: 0}
 --- !u!114 &1741657655
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -22,5 +22,7 @@ namespace Plane
         [SerializeField] public float baseRotorSpeed;
         [Header("ETC")]
         [SerializeField] public Vector3 comparePlane = Vector3.up;
+
+        [SerializeField] public float minY = 0;
     }
 }

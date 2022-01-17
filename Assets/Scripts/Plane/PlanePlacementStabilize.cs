@@ -9,7 +9,7 @@ namespace Plane
         [SerializeField] private float moveIntensity;
         [SerializeField] private float rotateIntensity;
         [SerializeField] private SteamVR_Action_Vector2 joystick;
-        private void Start()
+        private void Update()
         {
             UpdatePlacement();
         }

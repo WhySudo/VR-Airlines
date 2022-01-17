@@ -16,7 +16,7 @@ namespace Plane
 
         private void UpdatePlacement()
         {
-            Debug.Log(joystick.axis);
+            Debug.Log(SteamVR_Input.initialized);
             transform.localPosition += new Vector3(joystick.GetAxis(SteamVR_Input_Sources.RightHand).x * moveIntensity * Time.deltaTime, 0,
                 joystick.GetAxis(SteamVR_Input_Sources.RightHand).y * moveIntensity * Time.deltaTime);
             

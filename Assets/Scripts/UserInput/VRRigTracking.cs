@@ -15,7 +15,7 @@ namespace UserInput
 
         [Header("Debug")] [SerializeField] private bool lockInput = true;
 
-        private SteamVR_Action_Single inputTriggerAction;
+        [SerializeField] private SteamVR_Action_Single inputTriggerAction;
         public bool InputLocked => lockInput;
 
         private void Update()
@@ -26,7 +26,7 @@ namespace UserInput
         private void Awake()
         {
             SteamVR.Initialize();
-            inputTriggerAction = SteamVR_Input.GetAction<SteamVR_Action_Single>(vrConfig.joystickAxisName);
+//            inputTriggerAction = SteamVR_Input.GetAction<SteamVR_Action_Single>(vrConfig.joystickAxisName);
             leftRig.LockInput();
             rightRig.LockInput();
         }

@@ -30,7 +30,7 @@ namespace Plane
         
         private void Start()
         {
-            speed = movementSettings.baseSpeed;
+            speed = 0;
         }
 
         private void OnEnable()

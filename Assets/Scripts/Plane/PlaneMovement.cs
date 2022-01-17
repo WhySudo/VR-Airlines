@@ -59,7 +59,7 @@ namespace Plane
 
         private void MoveForward()
         {
-            var setPosition = transform.forward * (speed * Time.deltaTime);
+            var setPosition = transform.position +  transform.forward * (speed * Time.deltaTime);
             if (setPosition.y < 0)
             {
                 setPosition += Vector3.down * setPosition.y;

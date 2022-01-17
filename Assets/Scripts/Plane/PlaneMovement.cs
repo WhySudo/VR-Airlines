@@ -51,6 +51,7 @@ namespace Plane
         private void ProcessMovement()
         {
             if (speed <= 0) return;
+            
             BankRotation();
             PitchRotation();
             YawRotation();
@@ -64,13 +65,47 @@ namespace Plane
 
         private void PitchRotation()
         {
-            var deltaAngle = inputChannel.Pitch * movementSettings.pitchMaxSpeed * Time.deltaTime;
+            var setPitch = 0f;
+            if (inputChannel.AutoAlign)
+            {
+                var pitch = Pitch;
+                if (pitch > 0)
+                {
+                    setPitch = -1;
+                }
+                else if (pitch < 0)
+                {
+                    setPitch = 1;
+                }
+            }
+            else
+            {
+                setPitch = inputChannel.Pitch;
+            }
+            var deltaAngle = setPitch * movementSettings.pitchMaxSpeed * Time.deltaTime;
             var rotation = Quaternion.AngleAxis(deltaAngle, movementSettings.pitchAxis);
             transform.rotation *= rotation;
         }
         private void BankRotation()
         {
-            var deltaAngle = inputChannel.Bank * movementSettings.bankMaxSpeed * Time.deltaTime;
+            var setBank = 0f;
+            if (inputChannel.AutoAlign)
+            {
+                var bank = Bank;
+                if (bank > 0)
+                {
+                    setBank = -1;
+                }
+                else if (bank < 0)
+                {
+                    setBank = 1;
+                }
+            }
+            else
+            {
+                setBank = inputChannel.Bank;
+            }
+            var deltaAngle = setBank* movementSettings.bankMaxSpeed * Time.deltaTime;
             var rotation = Quaternion.AngleAxis(deltaAngle, movementSettings.bankAxis);
             transform.rotation *= rotation;
         }

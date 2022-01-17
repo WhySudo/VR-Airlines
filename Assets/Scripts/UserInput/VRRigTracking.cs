@@ -18,6 +18,8 @@ namespace UserInput
         [SerializeField] private bool lockRight = true;
 
         [SerializeField] private SteamVR_Action_Single inputTriggerAction;
+        [SerializeField] private SteamVR_Action_Vector2 joystick;
+        
     
 
         private void Update()
@@ -36,6 +38,8 @@ namespace UserInput
         private void DetectInput()
         {
             CheckLockInputs();
+            inputChannel.AutoAlign =
+                Mathf.Abs(joystick.GetAxis(SteamVR_Input_Sources.LeftHand).y) > vrConfig.detectAutoAlign;
             inputChannel.UpdatePitch(lockRight?0:GetPitchAngle());
             inputChannel.UpdateBank(lockRight?0:GetBankAngle());
             inputChannel.UpdateYaw(lockLeft?0:GetYawAngle());
@@ -94,7 +98,7 @@ namespace UserInput
 
         private float GetYawAngle()
         {
-            return -rightRig.AlignedDelta.x;
+            return -leftRig.AlignedDelta.x;
         }
 
         private float GetAcceleration()

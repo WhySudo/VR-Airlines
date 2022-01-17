@@ -11,17 +11,10 @@ namespace UserInput
         [SerializeField] public float rigsMaxDelta;
         [SerializeField] public float cutoutDelta;
         [SerializeField] public float cutoutDeltaAngle = 0.4f;
-
-        [SerializeField] public string joystickAxisName;
-        
-        [SerializeField] public string leftTriggerAxisName;
-        [SerializeField] public string rightTriggerAxisName;
-        [SerializeField] public string leftButtonAxisName;
-        [SerializeField] public string rightButtonAxisName;
-
         [Header("delta angles")]
         [SerializeField] public float xDeltaAngle;
         [SerializeField] public float zDeltaAngle;
+        [SerializeField] public float detectAutoAlign;
 
         private void OnValidate()
         {

@@ -13,14 +13,12 @@ namespace UserInput
         [SerializeField] private TrackableJoystickRig leftRig;
         [SerializeField] private TrackableJoystickRig rightRig;
 
-        [Header("Debug")] 
-        [SerializeField] private bool lockLeft = true;
+        [Header("Debug")] [SerializeField] private bool lockLeft = true;
         [SerializeField] private bool lockRight = true;
 
         [SerializeField] private SteamVR_Action_Single inputTriggerAction;
         [SerializeField] private SteamVR_Action_Vector2 joystick;
-        
-    
+
 
         private void Update()
         {
@@ -37,13 +35,13 @@ namespace UserInput
 
         private void DetectInput()
         {
-      //      CheckLockInputs();
-            // inputChannel.AutoAlign =
-            //     Mathf.Abs(joystick.GetAxis(SteamVR_Input_Sources.LeftHand).y) > vrConfig.detectAutoAlign;
-            inputChannel.UpdatePitch(lockRight?0:GetPitchAngle());
-            inputChannel.UpdateBank(lockRight?0:GetBankAngle());
-            inputChannel.UpdateYaw(lockLeft?0:GetYawAngle());
-            inputChannel.ChangeSpeed(lockLeft?0:GetAcceleration());
+            CheckLockInputs();
+            inputChannel.AutoAlign =
+                Mathf.Abs(joystick.GetAxis(SteamVR_Input_Sources.LeftHand).y) > vrConfig.detectAutoAlign;
+            inputChannel.UpdatePitch(lockRight ? 0 : GetPitchAngle());
+            inputChannel.UpdateBank(lockRight ? 0 : GetBankAngle());
+            inputChannel.UpdateYaw(lockLeft ? 0 : GetYawAngle());
+            inputChannel.ChangeSpeed(lockLeft ? 0 : GetAcceleration());
         }
 
         private void CheckLockInputs()
@@ -66,6 +64,7 @@ namespace UserInput
 
                 lockLeft = true;
             }
+
             if (inputTriggerAction.GetAxis(SteamVR_Input_Sources.RightHand) > 0f)
             {
                 if (lockRight)

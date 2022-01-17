@@ -11,7 +11,8 @@ namespace UserInput
         [Header("Debug")] [SerializeField] private Vector3 delta;
         [SerializeField] private Vector3 pivotPoint;
         public Vector3 PivotPoint => pivotPoint;
-
+        private bool inputLocked = true;
+        public bool InputLocked => inputLocked;
 
         private float NormalizeCutout(float rawValue)
         {
@@ -27,16 +28,19 @@ namespace UserInput
         {
             get
             {
-                var rawAngle = Mathf.Clamp(vrConfig.xDeltaAngle +Vector3.SignedAngle(container.right, transform.right, container.forward),
+                var rawAngle = Mathf.Clamp(
+                    vrConfig.xDeltaAngle + Vector3.SignedAngle(container.right, transform.right, container.forward),
                     -vrConfig.maxAngle, vrConfig.maxAngle) / vrConfig.maxAngle;
                 return NormalizeCutout(rawAngle);
             }
         }
+
         public float DeltaZRotation
         {
             get
             {
-                var rawAngle = Mathf.Clamp(vrConfig.zDeltaAngle + Vector3.SignedAngle(container.forward, transform.forward, container.right),
+                var rawAngle = Mathf.Clamp(
+                    vrConfig.zDeltaAngle + Vector3.SignedAngle(container.forward, transform.forward, container.right),
                     -vrConfig.maxAngle, vrConfig.maxAngle) / vrConfig.maxAngle;
                 return NormalizeCutout(rawAngle);
             }
@@ -84,6 +88,18 @@ namespace UserInput
         {
             delta = UnalignedDelta;
             CheckPivotUpdate();
+        }
+
+
+        public void UnlockInput()
+        {
+            inputLocked = false;
+            pivotPoint = transform.localPosition;
+        }
+
+        public void LockInput()
+        {
+            inputLocked = true;
         }
 
         private void CheckPivotUpdate()

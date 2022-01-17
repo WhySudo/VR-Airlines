@@ -13,16 +13,25 @@ namespace UserInput
         [SerializeField] private TrackableJoystickRig leftRig;
         [SerializeField] private TrackableJoystickRig rightRig;
 
-        [Header("Debug")]
-        [SerializeField] private bool lockInput = false;
+        [Header("Debug")] [SerializeField] private bool lockInput = true;
+
+        private SteamVR_Action_Single inputTriggerAction;
+        public bool InputLocked => lockInput;
 
         private void Update()
         {
             DetectInput();
         }
 
+        private void Awake()
+        {
+            SteamVR.Initialize();
+            inputTriggerAction = SteamVR_Input.GetAction<SteamVR_Action_Single>(vrConfig.joystickAxisName);
+            leftRig.LockInput();
+            rightRig.LockInput();
+        }
 
-        
+
         private void DetectInput()
         {
             CheckLockInputs();
@@ -35,13 +44,25 @@ namespace UserInput
 
         private void CheckLockInputs()
         {
-            if (Input.GetAxis(vrConfig.rightButtonAxisName) > 0f)
+            if (inputTriggerAction.axis > 0f)
             {
-                lockInput = true;
-            }
-            else if (Input.GetAxis(vrConfig.leftTriggerAxisName) > 0f)
-            {
+                if (lockInput == true)
+                {
+                    leftRig.UnlockInput();
+                    rightRig.UnlockInput();
+                }
+
                 lockInput = false;
+            }
+            else
+            {
+                if (lockInput == false)
+                {
+                    leftRig.LockInput();
+                    rightRig.LockInput();
+                }
+
+                lockInput = true;
             }
         }
 
@@ -52,7 +73,7 @@ namespace UserInput
 
         private float GetBankAngle()
         {
-            return rightRig.DeltaXRotation ;
+            return rightRig.DeltaXRotation;
         }
 
         private float GetYawAngle()
@@ -62,8 +83,6 @@ namespace UserInput
 
         private float GetAcceleration()
         {
-            // var press = SteamVR_Input.GetAction<SteamVR_Action_Single>("GrabPinch").axis - 0.5;
-            // return (float)press;
             return -leftRig.AlignedDelta.z;
         }
     }

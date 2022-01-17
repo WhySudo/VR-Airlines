@@ -17,7 +17,10 @@ MonoBehaviour:
   rigsMaxDelta: 0.3
   cutoutDelta: 0.3
   cutoutDeltaAngle: 0.1
+  joystickAxisName: GrabPinch
   leftTriggerAxisName: VRLeftTrigger
   rightTriggerAxisName: VRRightTrigger
   leftButtonAxisName: VRLeftButton
   rightButtonAxisName: VRRightButton
+  xDeltaAngle: 0
+  zDeltaAngle: 0

@@ -84,7 +84,7 @@ namespace UserInput
 
         private float GetPitchAngle()
         {
-            return -rightRig.DeltaZRotation;
+            return -rightRig.AlignedDelta.z;
         }
 
         private float GetBankAngle()

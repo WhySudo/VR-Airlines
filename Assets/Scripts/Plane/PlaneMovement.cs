@@ -50,7 +50,6 @@ namespace Plane
 
         private void ProcessMovement()
         {
-            Debug.Log(inputChannel.AutoAlign);
             if (speed <= 0) return;
             BankRotation();
             PitchRotation();
@@ -71,11 +70,11 @@ namespace Plane
                 var pitch = Pitch;
                 if (pitch > 0)
                 {
-                    setPitch = -1;
+                    setPitch = 1;
                 }
                 else if (pitch < 0)
                 {
-                    setPitch = 1;
+                    setPitch = -1;
                 }
             }
             else

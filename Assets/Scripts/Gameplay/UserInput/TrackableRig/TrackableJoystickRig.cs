@@ -37,7 +37,7 @@ namespace Gameplay.UserInput.TrackableRig
         {
             get
             {
-                var baseQuaterion = transform.rotation * Quaternion.Inverse(_storedRotation);
+                var baseQuaterion = transform.localRotation * Quaternion.Inverse(_storedRotation);
                 return Quaternion.FromToRotation(Vector3.ProjectOnPlane(baseQuaterion*transform.forward, container.up), container.forward
                     // Quaternion.FromToRotation(transform.forward, container.forward
                 ) * UnalignedDelta;
@@ -91,7 +91,7 @@ namespace Gameplay.UserInput.TrackableRig
             inputLocked = false;
             _storedFront = transform.forward;
             pivotPoint = transform.localPosition;
-            _storedRotation = transform.rotation;
+            _storedRotation = transform.localRotation
         }
 
         public void LockInput()

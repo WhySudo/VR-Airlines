@@ -29,6 +29,10 @@ namespace Gameplay.Land
                     var spawnedTile = Instantiate(tile, transform);
                     spawnedTile.transform.localPosition = GetTilePosition(x, z);
                     spawnedTile.transform.localRotation = Quaternion.Euler(0, 60 * Random.Range(0, 6),0);
+                    if (spawnedTile.TryGetComponent<Collider>(out var collider))
+                    {
+                        collider.enabled = false;
+                    }
                 }
             }
         }

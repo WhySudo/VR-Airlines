@@ -76,7 +76,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generationSettings: {fileID: 11400000, guid: 559f2252e7387ce42a25621225d5addb, type: 2}
   mapObjects:
-  - {fileID: 3781097017963030709}
   - {fileID: 1591559679761318, guid: 6aa6d57464e3a7742b51561c98bf11c8, type: 3}
   - {fileID: 1706377385328364, guid: b7700b61320aa4d488a12039baacd2e2, type: 3}
   - {fileID: 1841913013192508, guid: d2c7ed6d9dcb93748ac807810622ecc9, type: 3}

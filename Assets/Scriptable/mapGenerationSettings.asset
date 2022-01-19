@@ -19,8 +19,8 @@ MonoBehaviour:
   - {fileID: 3781097017529985679, guid: 9668215568ce21b43bb4e346649c6c96, type: 3}
   startPrefab: {fileID: 988542280305080473, guid: 620b2ae538d66a342b8a3df5f7765565,
     type: 3}
-  sidePrefabCount: 2
-  frontPrefabCount: 2
+  sidePrefabCount: 4
+  frontPrefabCount: 4
   tileDeltaX: 160
   tileDeltaZ: 137.6
   tileElementsCount: {x: 8, y: 8}

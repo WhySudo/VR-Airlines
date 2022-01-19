@@ -23,4 +23,4 @@ MonoBehaviour:
   speedChange: 10
   baseRotorSpeed: 2000
   comparePlane: {x: 0, y: 1, z: 0}
-  minY: 10
+  minY: 8

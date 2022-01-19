@@ -1010,7 +1010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42e1199126e34abe9f3a9acf42ae544b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveIntensity: 0.3
+  moveIntensity: 0.7
   rotateIntensity: 30
   joystick:
     actionPath: /actions/buggy/in/Steering
@@ -1358,75 +1358,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4644395999255118909}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &6742546528113568811
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3781097017529985672, guid: 9668215568ce21b43bb4e346649c6c96,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781097017529985672, guid: 9668215568ce21b43bb4e346649c6c96,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781097017529985672, guid: 9668215568ce21b43bb4e346649c6c96,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781097017529985672, guid: 9668215568ce21b43bb4e346649c6c96,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781097017529985672, guid: 9668215568ce21b43bb4e346649c6c96,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781097017529985672, guid: 9668215568ce21b43bb4e346649c6c96,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781097017529985672, guid: 9668215568ce21b43bb4e346649c6c96,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781097017529985672, guid: 9668215568ce21b43bb4e346649c6c96,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781097017529985672, guid: 9668215568ce21b43bb4e346649c6c96,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781097017529985672, guid: 9668215568ce21b43bb4e346649c6c96,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781097017529985672, guid: 9668215568ce21b43bb4e346649c6c96,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781097017529985679, guid: 9668215568ce21b43bb4e346649c6c96,
-        type: 3}
-      propertyPath: m_Name
-      value: Desert
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9668215568ce21b43bb4e346649c6c96, type: 3}
 --- !u!1001 &7089705745321105194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1493,6 +1424,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089705743595172009, guid: 25df29eed78085e47b436174dd0fe749,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7089705743595172010, guid: 25df29eed78085e47b436174dd0fe749,
         type: 3}

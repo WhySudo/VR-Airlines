@@ -34,7 +34,7 @@ namespace Gameplay.UserInput.TrackableRig
 
 
         public Vector3 AlignedDelta =>
-            Quaternion.FromToRotation(Vector3.ProjectOnPlane(_storedFront, container.up), container.forward
+            Quaternion.FromToRotation(Vector3.ProjectOnPlane(transform.forward, container.up), container.forward
                 // Quaternion.FromToRotation(transform.forward, container.forward
             ) * UnalignedDelta;
 

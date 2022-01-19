@@ -90,11 +90,7 @@ namespace Gameplay.UserInput
 
         private float GetPitchAngle()
         {
-            var pitch = Mathf.Pow(Mathf.Pow(-rightRig.AlignedDelta.z, 2) + Mathf.Pow(rightRig.AlignedDelta.y, 2), .5f) *
-                        (-rightRig.AlignedDelta.z > 0 ? 1 : -1f);
-            pitch = Mathf.Clamp(pitch, -1, 1);
-            
-            return pitch;
+            return -rightRig.AlignedDelta.z;
         }
 
         private float GetBankAngle()

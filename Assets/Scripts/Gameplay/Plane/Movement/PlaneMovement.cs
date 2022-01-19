@@ -68,11 +68,11 @@ namespace Gameplay.Plane.Movement
                 var pitch = Pitch;
                 if (pitch > 0)
                 {
-                    setPitch = 1;
+                    setPitch = Mathf.Min(1f, pitch);
                 }
                 else if (pitch < 0)
                 {
-                    setPitch = -1;
+                    setPitch = Mathf.Max(-1f, pitch);
                 }
             }
             else
@@ -91,11 +91,11 @@ namespace Gameplay.Plane.Movement
                 var bank = Bank;
                 if (bank > 0)
                 {
-                    setBank = -1;
+                    setBank = Mathf.Max(-1f, -bank);
                 }
                 else if (bank < 0)
                 {
-                    setBank = 1;
+                    setBank = Mathf.Min(1f, -bank);
                 }
             }
             else

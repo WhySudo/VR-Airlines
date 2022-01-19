@@ -1,27 +1,28 @@
 using System.Collections.Generic;
+using Gameplay.Aircraft;
+using Gameplay.Aircraft.Movement;
 using Gameplay.Channels;
-using Gameplay.Plane.Movement;
 using Gameplay.Settings;
 using UnityEngine;
 
 namespace Gameplay.Plane
 {
-    public class PlaneEmpennageVisualisation : MonoBehaviour
+    public class AircraftEmpennageVisualisation : MonoBehaviour
     {
         [Header("Links")] 
         [SerializeField] private InputChannel inputChannel;
-        [SerializeField] private MovementSettings movementSettings;
-        [SerializeField] private PlaneMovement plane;
+        [SerializeField] private AircraftMovement aircraft;
         
         [Header("Ailerons")]
-        [SerializeField] private RotatablePlanePart leftAileron;
-        [SerializeField] private RotatablePlanePart rightAileron;
+        [SerializeField] private RotatableAircraftPart leftAileron;
+        [SerializeField] private RotatableAircraftPart rightAileron;
 
         [Header("Elevators")] 
-        [SerializeField] private List<RotatablePlanePart> elevators;
+        [SerializeField] private List<RotatableAircraftPart> elevators;
 
-        [SerializeField] private RotatablePlanePart trimmer;
+        [SerializeField] private RotatableAircraftPart trimmer;
         [SerializeField] private Transform propeller;
+        private AircraftConfiguration AircraftConfiguration => aircraft.AircraftConfiguration;
 
         private void Update()
         {
@@ -53,8 +54,8 @@ namespace Gameplay.Plane
 
         private void MoveRotor()
         {
-            propeller.rotation *= Quaternion.AngleAxis(movementSettings.baseRotorSpeed * Time.deltaTime,
-                movementSettings.rotorAxis * plane.EngineSpeed / movementSettings.baseSpeed);
+            propeller.rotation *= Quaternion.AngleAxis(AircraftConfiguration.baseRotorSpeed * Time.deltaTime,
+                AircraftConfiguration.rotorAxis * aircraft.EngineSpeed / AircraftConfiguration.baseSpeed);
         }
     }
 }

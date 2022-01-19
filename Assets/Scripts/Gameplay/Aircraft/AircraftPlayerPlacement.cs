@@ -1,33 +1,29 @@
-﻿using System;
-using Gameplay.Channels;
-using UnityEngine;
+﻿using UnityEngine;
 using Valve.VR;
 
-namespace Gameplay.Plane
+namespace Gameplay.Aircraft
 {
-    public class PlanePlacement : MonoBehaviour
+    public class AircraftPlayerPlacement : MonoBehaviour
     {
         [SerializeField] private float moveIntensity;
         [SerializeField] private float rotateIntensity;
         [SerializeField] private SteamVR_Action_Vector2 joystick;
 
-        private void Start()
+        public void PutPlayer(Transform playerEntity)
         {
-            DetectInitialPlacement();
+            playerEntity.parent = transform;
+            playerEntity.localPosition = Vector3.zero;
+            playerEntity.localRotation = Quaternion.Euler(Vector3.zero);
         }
-
         private void Update()
         {
             UpdatePlacementFromInput();
         }
 
-        private void DetectInitialPlacement()
-        {
-            
-        }
         private void UpdatePlacementFromInput()
         {
-            transform.localPosition += new Vector3(joystick.GetAxis(SteamVR_Input_Sources.RightHand).x * moveIntensity * Time.deltaTime, 0,
+            transform.localPosition += new Vector3(
+                joystick.GetAxis(SteamVR_Input_Sources.RightHand).x * moveIntensity * Time.deltaTime, 0,
                 joystick.GetAxis(SteamVR_Input_Sources.RightHand).y * moveIntensity * Time.deltaTime);
 
             if (Mathf.Abs(joystick.GetAxis(SteamVR_Input_Sources.LeftHand).x) > 0.15)
@@ -38,5 +34,6 @@ namespace Gameplay.Plane
                         Vector3.up);
             }
         }
+
     }
 }

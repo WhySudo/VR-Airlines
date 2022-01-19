@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Gameplay.Plane
+namespace Gameplay.Aircraft
 {
-    public class RotatablePlanePart : MonoBehaviour
+    public class RotatableAircraftPart : MonoBehaviour
     {
         [Header("Settings")] [SerializeField] private float maxAngle;
         [SerializeField] private Vector3 rotatingAxis;

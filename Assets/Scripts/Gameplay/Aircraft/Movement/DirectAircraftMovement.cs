@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 
-namespace Gameplay.Plane.Movement
+namespace Gameplay.Aircraft.Movement
 {
-    public class DirectPlaneMovement : PlaneMovement
+    public class DirectAircraftMovement : AircraftMovement
     {
         protected override void MovePlane()
         {
             var setPosition = transform.position + transform.forward * (engineSpeed * Time.deltaTime);
-            if (setPosition.y < movementSettings.minY)
+            if (setPosition.y < AircraftConfiguration.minY)
             {
-                setPosition = new Vector3(setPosition.x, movementSettings.minY, setPosition.z);
+                setPosition = new Vector3(setPosition.x, AircraftConfiguration.minY, setPosition.z);
             }
             transform.position = setPosition;
         }

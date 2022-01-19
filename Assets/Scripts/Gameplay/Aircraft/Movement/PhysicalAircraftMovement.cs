@@ -1,10 +1,10 @@
 ﻿using Gameplay.Settings;
 using UnityEngine;
 
-namespace Gameplay.Plane.Movement
+namespace Gameplay.Aircraft.Movement
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class PhysicalPlaneMovement : PlaneMovement
+    public class PhysicalAircraftMovement : AircraftMovement
     {
         [SerializeField] private PhysicalMovementSettings physicalMovementSettings;
         private Rigidbody _rigidbody;

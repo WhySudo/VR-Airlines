@@ -7,11 +7,10 @@ namespace Gameplay.Avionics
     public class GroundLevelDisplayer : AvionicElement
     {
         [SerializeField] public Text displayGround;
-        [SerializeField] private MovementSettings movementSettings;
 
         private void Update()
         {
-            var height = planeMovement.transform.position.y - movementSettings.minY;
+            var height = aircraftMovement.transform.position.y - AircraftConfiguration.minY;
             displayGround.text = $"{height:F1} M";
         }
     }

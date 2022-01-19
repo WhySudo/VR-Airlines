@@ -21,12 +21,12 @@ namespace Gameplay.Avionics
 
         private void CalculateBank(Vector2 size)
         {
-            RectTransform.localRotation = Quaternion.Euler(0, 0, planeMovement.Bank);
+            RectTransform.localRotation = Quaternion.Euler(0, 0, aircraftMovement.Bank);
         }
 
         private void CalculatePitch(Vector2 size)
         {
-            var setPitchPos = planeMovement.Pitch * size.y / 90f / 2f;
+            var setPitchPos = aircraftMovement.Pitch * size.y / 90f / 2f;
             RectTransform.anchoredPosition = new Vector2(0, setPitchPos);
         }
     }

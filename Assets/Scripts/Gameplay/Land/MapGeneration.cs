@@ -14,7 +14,7 @@ namespace Gameplay.Land
         
 
         [Header("Settings")] 
-        [SerializeField] private MovementSettings movementSettings;
+        [SerializeField] private AircraftConfiguration aircraftConfiguration;
         [SerializeField] private MapGenerationSettings generationSettings;
 
         private Dictionary<Vector2Int, GameObject> spawnedTiles = new Dictionary<Vector2Int, GameObject>();
@@ -26,7 +26,7 @@ namespace Gameplay.Land
 
         private void CheckForGeneration()
         {
-            var rawPos = Vector3.ProjectOnPlane(playerPoint.position, movementSettings.comparePlane);
+            var rawPos = Vector3.ProjectOnPlane(playerPoint.position, aircraftConfiguration.comparePlane);
             var point = GetInternalPoint(rawPos);
             if (point != _prevPoint)
             {

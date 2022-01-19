@@ -2,8 +2,8 @@
 
 namespace Gameplay.Settings
 {
-    [CreateAssetMenu(fileName = "movementSettings", menuName = "Settings/Movement", order = 0)]
-    public class MovementSettings : ScriptableObject
+    [CreateAssetMenu(fileName = "aircraftConfiguration", menuName = "Settings/Aircraft Configuration", order = 0)]
+    public class AircraftConfiguration : ScriptableObject
     {
         [Header("Movement Axis")] 
         [SerializeField] public Vector3 pitchAxis = Vector3.right;

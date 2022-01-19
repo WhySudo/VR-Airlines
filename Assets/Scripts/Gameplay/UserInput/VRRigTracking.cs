@@ -109,7 +109,7 @@ namespace Gameplay.UserInput
 
         private float GetAcceleration()
         {
-            return -leftRig.AlignedDelta.z;
+            return leftRig.AlignedDelta.z;
         }
     }
 }

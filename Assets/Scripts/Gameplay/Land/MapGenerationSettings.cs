@@ -7,7 +7,7 @@ namespace Gameplay.Land
     public class MapGenerationSettings : ScriptableObject
     {
         [Header("TilesPrefabSpawner")] 
-        [SerializeField] public List<GameObject> tilesElements;
+        [SerializeField] public List<GameObject> mapTilesPrefabs;
         [SerializeField] public GameObject startPrefab;
         [SerializeField] public int sidePrefabCount;
         [SerializeField] public int frontPrefabCount;

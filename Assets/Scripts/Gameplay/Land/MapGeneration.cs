@@ -11,7 +11,6 @@ namespace Gameplay.Land
         [Header("Links")] 
         [SerializeField] private Transform playerPoint;
         [SerializeField] private Transform tilesParent;
-        [SerializeField] private GameObject tilePrefab;
         
 
         [Header("Settings")] 
@@ -81,7 +80,7 @@ namespace Gameplay.Land
             }
             else
             {
-                obj = Instantiate(tilePrefab, tilesParent);
+                obj = Instantiate(generationSettings.mapTilesPrefabs[Random.Range(0, generationSettings.mapTilesPrefabs.Count)], tilesParent);
             }
             obj.transform.position = wPos;
             spawnedTiles[pos] = obj;

@@ -1,13 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Gameplay.Land
 {
-    public class MapTileGenerator : MonoBehaviour
+    public class GeneratedMapTile : MonoBehaviour
     {
         [SerializeField] private MapGenerationSettings generationSettings;
-
+        [SerializeField] private List<GameObject> mapObjects;
         private void Awake()
         {
             GenerateTile();
@@ -23,8 +24,8 @@ namespace Gameplay.Land
                     z < generationSettings.tileElementsDelta.y + generationSettings.tileElementsCount.y;
                     z++)
                 {
-                    var tile = generationSettings.tilesElements[
-                        Random.Range(0, generationSettings.tilesElements.Count)];
+                    var tile = mapObjects[
+                        Random.Range(0, mapObjects.Count)];
                     var spawnedTile = Instantiate(tile, transform);
                     spawnedTile.transform.localPosition = GetTilePosition(x, z);
                     spawnedTile.transform.localRotation = Quaternion.Euler(0, 60 * Random.Range(0, 6),0);

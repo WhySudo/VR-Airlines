@@ -33,10 +33,17 @@ namespace Gameplay.UserInput.TrackableRig
         }
 
 
-        public Vector3 AlignedDelta =>
-            Quaternion.FromToRotation(Vector3.ProjectOnPlane(transform.forward, container.up), container.forward
-                // Quaternion.FromToRotation(transform.forward, container.forward
-            ) * UnalignedDelta;
+        public Vector3 AlignedDelta 
+        {
+            get
+            {
+                var baseQuaterion = transform.rotation * Quaternion.Inverse(_storedRotation);
+                return Quaternion.FromToRotation(Vector3.ProjectOnPlane(baseQuaterion*transform.forward, container.up), container.forward
+                    // Quaternion.FromToRotation(transform.forward, container.forward
+                ) * UnalignedDelta;
+            }
+        }
+            
 
         public Vector3 UnalignedDelta
         {
@@ -60,6 +67,7 @@ namespace Gameplay.UserInput.TrackableRig
         private float MaxDelta => vrConfig.rigsMaxDelta;
 
         private Vector3 _storedFront;
+        private Quaternion _storedRotation;
 
         private void Start()
         {
@@ -83,6 +91,7 @@ namespace Gameplay.UserInput.TrackableRig
             inputLocked = false;
             _storedFront = transform.forward;
             pivotPoint = transform.localPosition;
+            _storedRotation = transform.rotation;
         }
 
         public void LockInput()

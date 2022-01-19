@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f3a94d64075495289a586282570ce4d, type: 3}
-  m_Name: defaultPlane
+  m_Name: defaultPlane 1
   m_EditorClassIdentifier: 
   pitchAxis: {x: -1, y: 0, z: 0}
   bankAxis: {x: 0, y: 0, z: 1}

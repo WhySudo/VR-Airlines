@@ -91,7 +91,7 @@ namespace Gameplay.UserInput.TrackableRig
             inputLocked = false;
             _storedFront = transform.forward;
             pivotPoint = transform.localPosition;
-            _storedRotation = transform.localRotation
+            _storedRotation = transform.localRotation;
         }
 
         public void LockInput()

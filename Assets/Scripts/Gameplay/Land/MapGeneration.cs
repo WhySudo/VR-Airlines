@@ -11,15 +11,12 @@ namespace Gameplay.Land
         [Header("Links")] 
         [SerializeField] private Transform playerPoint;
         [SerializeField] private Transform tilesParent;
-        [SerializeField] private List<GameObject> tilesPrefab;
+        [SerializeField] private GameObject tilePrefab;
         
 
         [Header("Settings")] 
         [SerializeField] private MovementSettings movementSettings;
-        [SerializeField] private int sidePrefabCount;
-        [SerializeField] private int frontPrefabCount;
-        [SerializeField] private float deltaX;
-        [SerializeField] private float deltaZ;
+        [SerializeField] private MapGenerationSettings generationSettings;
 
         private Dictionary<Vector2Int, GameObject> spawnedTiles = new Dictionary<Vector2Int, GameObject>();
         private Vector2Int _prevPoint = new Vector2Int(1000, 1000);
@@ -45,12 +42,12 @@ namespace Gameplay.Land
 
         private Vector2Int GetInternalPoint(Vector3 coord)
         {
-            return new Vector2Int(Mathf.CeilToInt(coord.x / deltaX), Mathf.CeilToInt(coord.z / deltaZ));
+            return new Vector2Int(Mathf.CeilToInt(coord.x / generationSettings.tileDeltaX), Mathf.CeilToInt(coord.z / generationSettings.tileDeltaZ));
         }
 
         private Vector3 GetWorldPoint(Vector2Int coord)
         {
-            return new Vector3(coord.x * deltaX, 0, coord.y * deltaZ);
+            return new Vector3(coord.x * generationSettings.tileDeltaX, 0, coord.y * generationSettings.tileDeltaZ);
         }
         private void SpawnTilesAtPoint(Vector2Int[] newData)
         {
@@ -77,17 +74,24 @@ namespace Gameplay.Land
         private void SpawnTileAtPoint(Vector2Int pos)
         {
             var wPos = GetWorldPoint(pos);
-            var prefIdx = Random.Range(0, tilesPrefab.Count);
-            var obj = Instantiate(tilesPrefab[prefIdx], tilesParent);
+            GameObject obj;
+            if (pos == Vector2Int.zero)
+            {
+                obj = Instantiate(generationSettings.startPrefab, tilesParent);
+            }
+            else
+            {
+                obj = Instantiate(tilePrefab, tilesParent);
+            }
             obj.transform.position = wPos;
             spawnedTiles[pos] = obj;
         }
         private Vector2Int[] GetPointsToSpawn(Vector2Int point)
         {
             var list = new List<Vector2Int>();
-            for (int x = point.x-sidePrefabCount; x <= point.x+sidePrefabCount; x++)
+            for (int x = point.x-generationSettings.sidePrefabCount; x <= point.x+generationSettings.sidePrefabCount; x++)
             {
-                for (int z = point.y-frontPrefabCount; z <= point.y+frontPrefabCount; z++)
+                for (int z = point.y-generationSettings.frontPrefabCount; z <= point.y+generationSettings.frontPrefabCount; z++)
                 {
                     list.Add(new Vector2Int(x, z));
                 }

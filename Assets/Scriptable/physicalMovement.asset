@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd942604ff1a4141a8b0b1f07e5c12dd, type: 3}
+  m_Name: physicalMovement
+  m_EditorClassIdentifier: 
+  wingSquare: 0
+  airDensity: 0
+  enginePowerMultiplier: 0
+  upForce:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -86.99678
+      value: -0.19311523
+      inSlope: 0.4326232
+      outSlope: 0.4326232
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: -43.53204
+      value: 18.61074
+      inSlope: 0.006005016
+      outSlope: 0.006005016
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: -0.41612625
+      value: 0.15805244
+      inSlope: 0.000010837183
+      outSlope: 0.000010837183
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.09193846
+      outWeight: 0.73607254
+    - serializedVersion: 3
+      time: 30.400711
+      value: 19.712574
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 74.55085
+      value: 0.12231466
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

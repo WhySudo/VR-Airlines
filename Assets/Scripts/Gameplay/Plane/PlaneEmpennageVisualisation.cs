@@ -54,7 +54,7 @@ namespace Gameplay.Plane
         private void MoveRotor()
         {
             propeller.rotation *= Quaternion.AngleAxis(movementSettings.baseRotorSpeed * Time.deltaTime,
-                movementSettings.rotorAxis * plane.Speed / movementSettings.baseSpeed);
+                movementSettings.rotorAxis * plane.EngineSpeed / movementSettings.baseSpeed);
         }
     }
 }

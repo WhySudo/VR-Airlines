@@ -11,8 +11,8 @@ namespace Gameplay.Plane.Movement
         [SerializeField] protected InputChannel inputChannel;
         [SerializeField] protected MovementSettings movementSettings;
 
-        protected float speed;
-        public float Speed => speed;
+        protected float engineSpeed;
+        public float EngineSpeed => engineSpeed;
 
         public float Pitch => Vector3.SignedAngle(transform.forward,
             Vector3.ProjectOnPlane(transform.forward, movementSettings.comparePlane), -transform.right);
@@ -30,7 +30,7 @@ namespace Gameplay.Plane.Movement
         
         private void Start()
         {
-            speed = 0;
+            engineSpeed = 0;
         }
 
         private void OnEnable()
@@ -40,7 +40,7 @@ namespace Gameplay.Plane.Movement
 
         private void OnSpeedChangeRequest(ChangeSpeedRequestArgs arg0)
         {
-            speed = Mathf.Max( speed + arg0.deltaSpeed * movementSettings.speedChange * Time.deltaTime, 0);
+            engineSpeed = Mathf.Max( engineSpeed + arg0.deltaSpeed * movementSettings.speedChange * Time.deltaTime, 0);
         }
 
         private void Update()
@@ -50,7 +50,7 @@ namespace Gameplay.Plane.Movement
 
         private void ProcessMovement()
         {
-            if (speed <= 0) return;
+            if (engineSpeed <= 0) return;
             BankRotation();
             PitchRotation();
             YawRotation();
@@ -60,7 +60,7 @@ namespace Gameplay.Plane.Movement
 
         protected abstract void MovePlane();
 
-        private void PitchRotation()
+        protected virtual void PitchRotation()
         {
             var setPitch = 0f;
             if (inputChannel.AutoAlign)
@@ -83,7 +83,7 @@ namespace Gameplay.Plane.Movement
             var rotation = Quaternion.AngleAxis(deltaAngle, movementSettings.pitchAxis);
             transform.rotation *= rotation;
         }
-        private void BankRotation()
+        protected virtual void BankRotation()
         {
             var setBank = 0f;
             if (inputChannel.AutoAlign)
@@ -106,7 +106,7 @@ namespace Gameplay.Plane.Movement
             var rotation = Quaternion.AngleAxis(deltaAngle, movementSettings.bankAxis);
             transform.rotation *= rotation;
         }
-        private void YawRotation()
+        protected virtual void YawRotation()
         {
             var deltaAngle = inputChannel.Yaw * movementSettings.yawMaxSpeed * Time.deltaTime;
             var rotation = Quaternion.AngleAxis(deltaAngle, movementSettings.yawAxis);

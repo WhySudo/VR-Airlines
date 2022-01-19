@@ -6,7 +6,7 @@ namespace Gameplay.Plane.Movement
     {
         protected override void MovePlane()
         {
-            var setPosition = transform.position + transform.forward * (speed * Time.deltaTime);
+            var setPosition = transform.position + transform.forward * (engineSpeed * Time.deltaTime);
             if (setPosition.y < movementSettings.minY)
             {
                 setPosition = new Vector3(setPosition.x, movementSettings.minY, setPosition.z);

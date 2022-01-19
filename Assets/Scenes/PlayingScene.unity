@@ -483,13 +483,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPoint: {fileID: 4644395999255118910}
   tilesParent: {fileID: 756072598}
-  tilesPrefab:
-  - {fileID: 988542280305080473, guid: 620b2ae538d66a342b8a3df5f7765565, type: 3}
+  tilePrefab: {fileID: 1250426453193985731, guid: 245abd4c03d5ec74182e9e08d31ff887,
+    type: 3}
   movementSettings: {fileID: 11400000, guid: 7ada45e20194db7439c52fa9c1b001ce, type: 2}
-  sidePrefabCount: 2
-  frontPrefabCount: 2
-  deltaX: 160
-  deltaZ: 137.6
+  generationSettings: {fileID: 11400000, guid: 559f2252e7387ce42a25621225d5addb, type: 2}
 --- !u!20 &963194227 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 7089705744357931609, guid: 25df29eed78085e47b436174dd0fe749,

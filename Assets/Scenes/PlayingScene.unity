@@ -1005,7 +1005,7 @@ PrefabInstance:
         type: 3}
       propertyPath: container
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1725982594}
     - target: {fileID: 7089705743595172008, guid: 25df29eed78085e47b436174dd0fe749,
         type: 3}
       propertyPath: m_RootOrder
@@ -1090,6 +1090,6 @@ PrefabInstance:
         type: 3}
       propertyPath: container
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1725982594}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25df29eed78085e47b436174dd0fe749, type: 3}

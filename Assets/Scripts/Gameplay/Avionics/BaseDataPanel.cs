@@ -16,10 +16,10 @@ namespace Gameplay.Avionics
         private void UpdateText()
         {
             var txt = new StringBuilder();
-            txt.Append($"\nSpeed: {aircraftMovement.EngineSpeed:F1}\n\n");
-            txt.Append($"Pitch: {aircraftMovement.Pitch:F1}\n");
-            txt.Append($"Bank: {aircraftMovement.Bank:F1}\n");
-            txt.Append($"Yaw: {aircraftMovement.Yaw:F1}\n");
+            txt.Append($"\nSpeed: {AircraftMovement.EngineSpeed:F1}\n\n");
+            txt.Append($"Pitch: {AircraftMovement.Pitch:F1}\n");
+            txt.Append($"Bank: {AircraftMovement.Bank:F1}\n");
+            txt.Append($"Yaw: {AircraftMovement.Yaw:F1}\n");
             text.text = txt.ToString();
         }
     }

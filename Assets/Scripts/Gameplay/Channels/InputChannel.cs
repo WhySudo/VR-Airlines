@@ -1,4 +1,4 @@
-﻿using Gameplay.UserInput.Events;
+﻿using Gameplay.UserInput;
 using UnityEngine;
 
 namespace Gameplay.Channels
@@ -6,15 +6,16 @@ namespace Gameplay.Channels
     [CreateAssetMenu(fileName = "inputChannel", menuName = "Channels/Input", order = 0)]
     public class InputChannel : ScriptableObject
     {
-        public readonly ChangeSpeedRequestEvent ChangeSpeedRequestEvent = new ChangeSpeedRequestEvent();
-        
+        public ChangePlaneRequestEvent ChangePlaneRequestEvent = new ChangePlaneRequestEvent();
         private float _bank = 0;
         private float _yaw = 0;
         private float _pitch = 0;
+        private float _speedChange = 0;
 
         public float Bank => _bank;
         public float Yaw => _yaw;
         public float Pitch => _pitch;
+        public float SpeedChange => _speedChange;
 
         public bool AutoAlign { get; set; } = false;
 
@@ -30,10 +31,15 @@ namespace Gameplay.Channels
         {
             _yaw = Mathf.Clamp(newAngle, -1, 1);
         }
-
+        
         public void ChangeSpeed(float delta)
         {
-            ChangeSpeedRequestEvent.Invoke(new ChangeSpeedRequestArgs(delta));
+            _speedChange = delta;
+        }
+
+        public void RequestPlaneChange(ChangePlaneType type = ChangePlaneType.Next)
+        {
+            ChangePlaneRequestEvent.Invoke(new ChangePlaneRequestArgs(type));
         }
         
     }

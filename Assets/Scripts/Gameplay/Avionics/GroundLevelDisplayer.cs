@@ -10,7 +10,7 @@ namespace Gameplay.Avionics
 
         private void Update()
         {
-            var height = aircraftMovement.transform.position.y - AircraftConfiguration.minY;
+            var height = AircraftMovement.transform.position.y - AircraftConfiguration.minY;
             displayGround.text = $"{height:F1} M";
         }
     }

@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b02d636426584f38bd9315c71868e655, type: 3}
-  m_Name: gameSettings
+  m_Script: {fileID: 11500000, guid: ac7a684f84064e3ab7bc63b71165545a, type: 3}
+  m_Name: aircraftEventsChannel
   m_EditorClassIdentifier: 
-  aircraftList:
-  - {fileID: 5233558444368844763, guid: e679a6601f68b6047ba83203eb7a553b, type: 3}

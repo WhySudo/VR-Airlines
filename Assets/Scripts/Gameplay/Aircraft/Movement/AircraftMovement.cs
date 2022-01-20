@@ -1,6 +1,5 @@
 ﻿using Gameplay.Channels;
 using Gameplay.Settings;
-using Gameplay.UserInput.Events;
 using UnityEngine;
 
 namespace Gameplay.Aircraft.Movement
@@ -34,15 +33,8 @@ namespace Gameplay.Aircraft.Movement
             engineSpeed = 0;
         }
 
-        private void OnEnable()
-        {
-            inputChannel.ChangeSpeedRequestEvent.AddListener(OnSpeedChangeRequest);
-        }
 
-        private void OnSpeedChangeRequest(ChangeSpeedRequestArgs arg0)
-        {
-            engineSpeed = Mathf.Max( engineSpeed + arg0.deltaSpeed * AircraftConfiguration.speedChange * Time.deltaTime, 0);
-        }
+       
 
         private void Update()
         {
@@ -51,12 +43,18 @@ namespace Gameplay.Aircraft.Movement
 
         private void ProcessMovement()
         {
+            DetectSpeedChange();
             if (engineSpeed <= 0) return;
             BankRotation();
             PitchRotation();
             YawRotation();
-            
             MovePlane();
+            
+        }
+
+        private void DetectSpeedChange()
+        {
+            engineSpeed = Mathf.Max( engineSpeed + inputChannel.SpeedChange * AircraftConfiguration.speedChange * Time.deltaTime, 0);
         }
 
         protected abstract void MovePlane();
@@ -113,9 +111,6 @@ namespace Gameplay.Aircraft.Movement
             var rotation = Quaternion.AngleAxis(deltaAngle, AircraftConfiguration.yawAxis);
             transform.rotation *= rotation;
         }
-        private void OnDisable()
-        {
-            inputChannel.ChangeSpeedRequestEvent.RemoveListener(OnSpeedChangeRequest);
-        }
+       
     }
 }

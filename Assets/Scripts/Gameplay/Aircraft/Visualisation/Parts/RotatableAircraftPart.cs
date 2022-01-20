@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Gameplay.Aircraft
+namespace Gameplay.Aircraft.Visualisation.Parts
 {
     public class RotatableAircraftPart : MonoBehaviour
     {
@@ -11,7 +11,7 @@ namespace Gameplay.Aircraft
         private float _currentAngle = 0;
         private float _rotSpeed = 0;
 
-        public void Rotate(float angle)
+        public void SetRotation(float angle)
         {
             _targetAngle = angle*maxAngle;
         }

@@ -22,6 +22,8 @@ namespace Emulation
         [Header("Speed")]
         [SerializeField] private KeyCode speedUp;
         [SerializeField] private KeyCode speedDown;
+        [Header("Etc")] 
+        [SerializeField] private KeyCode changePlane;
         private void Update()
         {
             ProcessInput();
@@ -36,9 +38,10 @@ namespace Emulation
             inputChannel.UpdatePitch(pitch);
             inputChannel.UpdateBank(bank);
             inputChannel.UpdateYaw(yaw);
-            if (speed != 0)
+            inputChannel.ChangeSpeed(speed);
+            if (Input.GetKeyDown(changePlane))
             {
-                inputChannel.ChangeSpeed(speed);
+                inputChannel.RequestPlaneChange();
             }
         }
 

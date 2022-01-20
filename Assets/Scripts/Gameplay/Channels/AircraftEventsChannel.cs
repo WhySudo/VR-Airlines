@@ -15,5 +15,9 @@ namespace Gameplay.Channels
         {
             AircraftBeforeDestroyingEvent.Invoke(new AircraftBeforeDestroyingArgs(entity));
         }
+        public void AircraftSpawn(AircraftEntity entity)
+        {
+            AircraftSpawnedEvent.Invoke(new AircraftSpawnedArgs(entity));
+        }
     }
 }

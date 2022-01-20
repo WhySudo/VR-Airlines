@@ -8,6 +8,11 @@ namespace Gameplay.Aircraft.Events
 
     public class  AircraftSpawnedArgs
     {
-        public AircraftEntity _spawnedAircraft;
+        public AircraftEntity spawnedAircraft;
+
+        public AircraftSpawnedArgs(AircraftEntity spawnedAircraft)
+        {
+            this.spawnedAircraft = spawnedAircraft;
+        }
     }
 }

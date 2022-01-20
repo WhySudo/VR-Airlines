@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Gameplay.Etc;
+using Gameplay.Player;
+using UnityEngine;
 using Valve.VR;
 
 namespace Gameplay.Aircraft
@@ -9,11 +11,15 @@ namespace Gameplay.Aircraft
         [SerializeField] private float rotateIntensity;
         [SerializeField] private SteamVR_Action_Vector2 joystick;
 
-        public void PutPlayer(Transform playerEntity)
+        
+        public readonly PlacementPlayerPutEvent PlacementPlayerPutEvent = new PlacementPlayerPutEvent();
+        public void PutPlayer(PlayerPresentation playerEntity)
         {
-            playerEntity.parent = transform;
-            playerEntity.localPosition = Vector3.zero;
-            playerEntity.localRotation = Quaternion.Euler(Vector3.zero);
+            var playerTransform = playerEntity.transform;
+            playerTransform.parent = transform;
+            playerTransform.localPosition = Vector3.zero;
+            playerTransform.localRotation = Quaternion.Euler(Vector3.zero);
+            PlacementPlayerPutEvent.Invoke(new PlacementPlayerPutArgs(playerEntity));
         }
         private void Update()
         {

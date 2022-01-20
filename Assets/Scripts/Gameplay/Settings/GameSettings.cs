@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Gameplay.Aircraft;
-using Gameplay.Plane;
 using UnityEngine;
 
 namespace Gameplay.Settings

@@ -413,6 +413,12 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!4 &684494585 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7089705744780062024, guid: 25df29eed78085e47b436174dd0fe749,
+    type: 3}
+  m_PrefabInstance: {fileID: 7089705745321105194}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,6 +679,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1207409703 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7089705743592468414, guid: 25df29eed78085e47b436174dd0fe749,
+    type: 3}
+  m_PrefabInstance: {fileID: 7089705745321105194}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1337409063 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7842e2209acb7ec498d59e1454659c62,
@@ -1005,7 +1017,7 @@ PrefabInstance:
         type: 3}
       propertyPath: container
       value: 
-      objectReference: {fileID: 1725982594}
+      objectReference: {fileID: 1207409703}
     - target: {fileID: 7089705743595172008, guid: 25df29eed78085e47b436174dd0fe749,
         type: 3}
       propertyPath: m_RootOrder
@@ -1090,6 +1102,6 @@ PrefabInstance:
         type: 3}
       propertyPath: container
       value: 
-      objectReference: {fileID: 1725982594}
+      objectReference: {fileID: 684494585}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25df29eed78085e47b436174dd0fe749, type: 3}

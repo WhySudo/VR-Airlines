@@ -1018,6 +1018,12 @@ PrefabInstance:
       propertyPath: container
       value: 
       objectReference: {fileID: 1207409703}
+    - target: {fileID: 7089705743592468412, guid: 25df29eed78085e47b436174dd0fe749,
+        type: 3}
+      propertyPath: aircraftEventsChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: d3f6b374bdd2a9a4d874fd7511cd431b,
+        type: 2}
     - target: {fileID: 7089705743595172008, guid: 25df29eed78085e47b436174dd0fe749,
         type: 3}
       propertyPath: m_RootOrder
@@ -1103,5 +1109,11 @@ PrefabInstance:
       propertyPath: container
       value: 
       objectReference: {fileID: 684494585}
+    - target: {fileID: 7089705744780062030, guid: 25df29eed78085e47b436174dd0fe749,
+        type: 3}
+      propertyPath: aircraftEventsChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: d3f6b374bdd2a9a4d874fd7511cd431b,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25df29eed78085e47b436174dd0fe749, type: 3}

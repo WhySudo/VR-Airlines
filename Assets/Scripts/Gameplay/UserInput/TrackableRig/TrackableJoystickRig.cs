@@ -1,4 +1,7 @@
-﻿using Gameplay.Settings;
+﻿using System;
+using Gameplay.Aircraft.Events;
+using Gameplay.Channels;
+using Gameplay.Settings;
 using UnityEngine;
 
 namespace Gameplay.UserInput.TrackableRig
@@ -7,6 +10,7 @@ namespace Gameplay.UserInput.TrackableRig
     {
         [Header("Settings")] [SerializeField] private Transform container;
         [SerializeField] private VRInputConfig vrConfig;
+        [SerializeField] private AircraftEventsChannel aircraftEventsChannel;
 
         [Header("Debug")] [SerializeField] private Vector3 delta;
         [SerializeField] private Vector3 pivotPoint;
@@ -106,6 +110,21 @@ namespace Gameplay.UserInput.TrackableRig
             {
                 pivotPoint = transform.localPosition - delta.normalized * MaxDelta;
             }
+        }
+
+        private void OnEnable()
+        {
+            aircraftEventsChannel.AircraftSpawnedEvent.AddListener(OnAircraftSpawn);
+        }
+
+        private void OnAircraftSpawn(AircraftSpawnedArgs arg0)
+        {
+            container = arg0.spawnedAircraft.transform;
+        }
+
+        private void OnDisable()
+        {
+            aircraftEventsChannel.AircraftSpawnedEvent.RemoveListener(OnAircraftSpawn);
         }
     }
 }

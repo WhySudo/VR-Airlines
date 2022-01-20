@@ -30,17 +30,17 @@ PrefabInstance:
     - target: {fileID: 2008693173221103552, guid: 8eed431baae19e24885ba1c6a145403a,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 30
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2008693173221103552, guid: 8eed431baae19e24885ba1c6a145403a,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 30
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2008693173221103552, guid: 8eed431baae19e24885ba1c6a145403a,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 30
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2008693173221103552, guid: 8eed431baae19e24885ba1c6a145403a,
         type: 3}
@@ -177,6 +177,11 @@ PrefabInstance:
       propertyPath: aircraftMovement
       value: 
       objectReference: {fileID: 433398396}
+    - target: {fileID: 931598249154129074, guid: 5b4af7084211ada498c97a8861296ca0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.41
+      objectReference: {fileID: 0}
     - target: {fileID: 5261672916806761628, guid: 5b4af7084211ada498c97a8861296ca0,
         type: 3}
       propertyPath: aircraftCanvas.Array.size
@@ -299,7 +304,7 @@ PrefabInstance:
     - target: {fileID: 1298488724761571429, guid: bea21b4c23ac0f247838ebf7d1ac23c1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.825
+      value: 0.593
       objectReference: {fileID: 0}
     - target: {fileID: 1298488724761571429, guid: bea21b4c23ac0f247838ebf7d1ac23c1,
         type: 3}
@@ -329,7 +334,7 @@ PrefabInstance:
     - target: {fileID: 1298488724761571429, guid: bea21b4c23ac0f247838ebf7d1ac23c1,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.348
+      value: 0.802
       objectReference: {fileID: 0}
     - target: {fileID: 1298488724761571429, guid: bea21b4c23ac0f247838ebf7d1ac23c1,
         type: 3}

@@ -7,9 +7,9 @@ namespace Gameplay.Aircraft.Movement
         protected override void MovePlane()
         {
             var setPosition = transform.position + transform.forward * (engineSpeed * Time.deltaTime);
-            if (setPosition.y < AircraftConfiguration.minY)
+            if (setPosition.y < gameSettings.minY)
             {
-                setPosition = new Vector3(setPosition.x, AircraftConfiguration.minY, setPosition.z);
+                setPosition = new Vector3(setPosition.x, gameSettings.minY, setPosition.z);
             }
             transform.position = setPosition;
         }

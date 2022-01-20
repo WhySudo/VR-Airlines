@@ -9,6 +9,7 @@ namespace Gameplay.Settings
     {
         [Header("Main Settings")]
         [SerializeField] public List<AircraftEntity> aircraftList;
-        
+        [SerializeField] public float minY;
+
     }
 }

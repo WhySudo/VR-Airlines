@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f3a94d64075495289a586282570ce4d, type: 3}
-  m_Name: Cessna
+  m_Name: Broomstick
   m_EditorClassIdentifier: 
   pitchAxis: {x: -1, y: 0, z: 0}
   bankAxis: {x: 0, y: 0, z: 1}
   yawAxis: {x: 0, y: -1, z: 0}
-  pitchMaxSpeed: 30
-  bankMaxSpeed: 30
-  yawMaxSpeed: 20
-  speedChange: 10
-  maxSpeed: 200
+  pitchMaxSpeed: 40
+  bankMaxSpeed: 70
+  yawMaxSpeed: 50
+  speedChange: 30
+  maxSpeed: 70
   comparePlane: {x: 0, y: 1, z: 0}

@@ -530,7 +530,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 742523888}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a746e28a7884289b5a09c6bb29efc30, type: 3}
   m_Name: 
@@ -1064,7 +1064,12 @@ PrefabInstance:
     - target: {fileID: 7089705743595172009, guid: 25df29eed78085e47b436174dd0fe749,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089705743595172009, guid: 25df29eed78085e47b436174dd0fe749,
+        type: 3}
+      propertyPath: planeSwitchButton.actionPath
+      value: /actions/buggy/in/Reset
       objectReference: {fileID: 0}
     - target: {fileID: 7089705743595172010, guid: 25df29eed78085e47b436174dd0fe749,
         type: 3}

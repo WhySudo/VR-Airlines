@@ -9,6 +9,7 @@ namespace Gameplay.Aircraft.Movement
         [Header("Links")] 
         [SerializeField] protected InputChannel inputChannel;
         [SerializeField] protected AircraftEntity aircraftEntity;
+        [SerializeField] protected GameSettings gameSettings;
         public AircraftConfiguration AircraftConfiguration => aircraftEntity.Configuration; 
 
         protected float engineSpeed;
@@ -54,7 +55,7 @@ namespace Gameplay.Aircraft.Movement
 
         private void DetectSpeedChange()
         {
-            engineSpeed = Mathf.Max( engineSpeed + inputChannel.SpeedChange * AircraftConfiguration.speedChange * Time.deltaTime, 0);
+            engineSpeed = Mathf.Clamp( engineSpeed + inputChannel.SpeedChange * AircraftConfiguration.speedChange * Time.deltaTime, 0, AircraftConfiguration.maxSpeed);
         }
 
         protected abstract void MovePlane();

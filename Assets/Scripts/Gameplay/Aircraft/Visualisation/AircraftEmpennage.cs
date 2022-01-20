@@ -61,7 +61,7 @@ namespace Gameplay.Aircraft.Visualisation
         {
             foreach (var propeller in propellers)
             {
-                propeller.RotatePart(aircraft.EngineSpeed / AircraftConfiguration.baseSpeed);
+                propeller.RotatePart(aircraft.EngineSpeed);
             }
         }
     }

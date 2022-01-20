@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aircraftList:
   - {fileID: 5233558444368844763, guid: e679a6601f68b6047ba83203eb7a553b, type: 3}
+  - {fileID: 8861435137468996293, guid: 19aaf8a860cacba4686c529d218508ba, type: 3}
+  - {fileID: 5259297245006542760, guid: 39e69cffbea3bec45bd619ecaa4c1a8b, type: 3}
+  - {fileID: 1310392576597791422, guid: 97a2c6dd3e6307642946010c1c25aa7f, type: 3}
+  minY: 5

@@ -9,7 +9,6 @@ namespace Gameplay.Settings
         [SerializeField] public Vector3 pitchAxis = Vector3.right;
         [SerializeField] public Vector3 bankAxis = Vector3.forward;
         [SerializeField] public Vector3 yawAxis = Vector3.up;
-        [SerializeField] public Vector3 rotorAxis;
         
         [Header("Max Rotation Speeds (per second)")]
         [SerializeField] public float pitchMaxSpeed; 
@@ -17,12 +16,10 @@ namespace Gameplay.Settings
         [SerializeField] public float yawMaxSpeed;
         
         [Header("Speed")] 
-        [SerializeField] public float baseSpeed;
         [SerializeField] public float speedChange;
-        [SerializeField] public float baseRotorSpeed;
+        [SerializeField] public float maxSpeed;
         
         [Header("ETC")]
         [SerializeField] public Vector3 comparePlane = Vector3.up;
-        [SerializeField] public float minY = 0;
     }
 }
